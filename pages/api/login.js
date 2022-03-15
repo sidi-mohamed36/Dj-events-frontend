@@ -8,7 +8,7 @@ export default async (req, res) => {
     const strapiRes = await fetch(`${API_URL}/auth/local`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',      
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         identifier,
