@@ -8,8 +8,7 @@ export default async function S(req, res)  {
     const strapiRes = await fetch(`${API_URL}/auth/local`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        
+        'Content-Type': 'application/json',      
       },
       body: JSON.stringify({
         identifier,
@@ -20,7 +19,6 @@ export default async function S(req, res)  {
     const data = await strapiRes.json()
 
     if (strapiRes.ok) {
-      // Set Cookie
       // Set Cookie
       res.setHeader(
         'Set-Cookie',
