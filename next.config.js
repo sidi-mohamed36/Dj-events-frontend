@@ -3,7 +3,7 @@ module.exports = {
   images: {
     domains: ['res.cloudinary.com'],
   },
-    source: "/api/*",
+    source: "/api/login*",
     headers: [
       { key: "Access-Control-Allow-Credentials", value: "true" },
       { key: "Access-Control-Allow-Origin", value: "*" },
