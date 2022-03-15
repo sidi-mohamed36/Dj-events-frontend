@@ -4,7 +4,8 @@ module.exports = {
     domains: ['res.cloudinary.com'],
   },
 }
-async function headers() {
+module.exports = {
+async  headers() {
   return [
     {
       // matching all API routes
@@ -17,4 +18,5 @@ async function headers() {
       ]
     }
   ]
+}
 }
