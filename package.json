@@ -20,7 +20,8 @@
     "react-geocode": "^0.2.3",
     "react-icons": "^4.3.1",
     "react-map-gl": "^6.1.12",
-    "react-toastify": "^8.2.0"
+    "react-toastify": "^8.2.0",
+    "vercel": "^24.0.0"
   },
   "devDependencies": {
     "eslint": "8.10.0",
