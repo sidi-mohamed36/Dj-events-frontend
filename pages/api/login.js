@@ -38,7 +38,7 @@ export default async (req, res) => {
       );
     if (req.method == "OPTIONS") {
       res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-      return res.status(200).json({});
+      return res.status(200).json({}).send("ok");
     }
 
       res.status(200).json({ user: data.user })
