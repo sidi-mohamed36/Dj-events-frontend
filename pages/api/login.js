@@ -1,10 +1,9 @@
 import cookie from 'cookie'
 import { API_URL } from '@/config/index'
 
-export default async (req, res) => {
+export default async function S(req, res)  {
   if (req.method === 'POST') {
     const { identifier, password } = req.body
-    console.log(req)
 
     const strapiRes = await fetch(`${API_URL}/auth/local`, {
       method: 'POST',
@@ -16,10 +15,11 @@ export default async (req, res) => {
         password,
       }),
     })
-     
+
     const data = await strapiRes.json()
 
     if (strapiRes.ok) {
+      // Set Cookie
       // Set Cookie
       res.setHeader(
         'Set-Cookie',
@@ -31,15 +31,6 @@ export default async (req, res) => {
           path: '/',
         })
       )
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-      );
-    if (req.method == "OPTIONS") {
-      res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-      return res.status(200).json({}).send("ok");
-    }
 
       res.status(200).json({ user: data.user })
     } else {
