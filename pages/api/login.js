@@ -16,7 +16,11 @@ export default async (req, res) => {
         password,
       }),
     })
-
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
     const data = await strapiRes.json()
 
     if (strapiRes.ok) {
@@ -32,7 +36,7 @@ export default async (req, res) => {
         })
       )
 
-      res.status(200).json({ user: data.user }).send("ok")
+      res.status(200).json({ user: data.user })
     } else {
       res
         .status(data.statusCode)
