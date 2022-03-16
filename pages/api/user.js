@@ -5,6 +5,7 @@ export default async (req, res) => {
   if (req.method === 'GET') {
     if (!req.headers.cookie) {
       res.status(403).json({ message: 'Not Authorized' })
+      console.log(req)
       return
     }
 
