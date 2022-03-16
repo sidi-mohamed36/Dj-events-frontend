@@ -5,7 +5,7 @@ export default async (req, res) => {
   if (req.method === 'GET') {
     if (!req.headers.cookie) {
       res.status(403).json({ message: 'Not Authorized' })
-      console.log(req)
+      
       return
     }
 
@@ -21,7 +21,15 @@ export default async (req, res) => {
     const user = await strapiRes.json()
 
     if (strapiRes.ok) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header(
+        "Access-Control-Allow-Headers",
+       "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+        );
+        res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+      res.status(200).json({ user: data.user })
       res.status(200).json({ user })
+
     } else {
       res.status(403).json({ message: 'User forbidden' })
     }
